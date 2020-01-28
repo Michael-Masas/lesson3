@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-nginx
+spec:
+  rules:
+  - host: mysql.services.com 
+    http:
+      paths:
+      - path: /username
+        backend:
+          serviceName: username-svc
+          servicePort: 80
+      - path: /password
+        backend:
+          serviceName: password-svc
+          servicePort: 80
+      - path: /url
+        backend:
+          serviceName: url-svc
+          servicePort: 80
